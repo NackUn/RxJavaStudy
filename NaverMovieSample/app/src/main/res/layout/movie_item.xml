@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tool:text="영화제목" />
+
+        <TextView
+            android:id="@+id/tv_movie_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tool:text="별점" />
+
+        <TextView
+            android:id="@+id/tv_movie_release"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tool:text="2019" />
+
+        <TextView
+            android:id="@+id/tv_movie_director"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tool:text="감독" />
+
+        <TextView
+            android:id="@+id/tv_movie_actor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tool:text="내요요요요용" />
+
+    </LinearLayout>
+
+</LinearLayout>
