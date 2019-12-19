@@ -17,9 +17,8 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
         object : BaseRecyclerView.BaseAdapter<List<MovieItem>, MovieItemBinding>(
             R.layout.movie_item,
             BR.movieItem
-        ){
+        ){}
 
-        }
     override val vm: MovieViewModel = MovieViewModel()
 
     fun initViewModel(){
