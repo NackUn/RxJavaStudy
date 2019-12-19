@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">부스트캠프 사전과제</string>
-    <string name="naver_client_id">mPSHgEZRlh0FiYZQW0N3</string>
-    <string name="naver_client_secret">rOdScOfgWl</string>
 </resources>
