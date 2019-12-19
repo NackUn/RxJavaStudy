@@ -3,6 +3,7 @@
     xmlns:tool="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.text.Html"/>
         <variable
             name="movieItem"
             type="com.example.navermoviesample.vo.MovieItem"/>
@@ -11,26 +12,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="12dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:contentDescription="@{movieItem.title}"/>
+            android:contentDescription="@{movieItem.title}"
+            setUrlImg="@{movieItem.image}"/>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="12dp">
 
             <TextView
                 android:id="@+id/tv_movie_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tool:text="영화제목"
-                android:text="@{movieItem.title}"/>
+                android:text="@{Html.fromHtml(movieItem.title)}"/>
 
             <TextView
                 android:id="@+id/tv_movie_review"
