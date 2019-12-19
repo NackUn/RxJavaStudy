@@ -13,6 +13,7 @@ import com.example.navermoviesample.databinding.MovieFragmentBinding
 import com.example.navermoviesample.databinding.MovieItemBinding
 import com.example.navermoviesample.vo.MovieItem
 import kotlinx.android.synthetic.main.movie_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
     R.layout.movie_fragment
@@ -23,7 +24,7 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
             BR.movieItem
         ){}
 
-    override val vm: MovieViewModel = MovieViewModel()
+    override val vm: MovieViewModel by viewModel()
 
     fun initViewModel(){
         binding.setVariable(BR.vm, vm)

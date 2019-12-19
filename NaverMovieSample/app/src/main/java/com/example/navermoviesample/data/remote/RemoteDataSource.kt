@@ -19,8 +19,8 @@ class RemoteDataSource(
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { searchResult -> onSearchSuccess },
-                    { thowable -> thowable.message }
+                    { searchResult -> onSearchSuccess(searchResult.movieItems) },
+                    { thowable -> onError(thowable) }
                 )
         }
     }
