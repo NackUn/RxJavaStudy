@@ -1,10 +1,9 @@
 package com.example.navermoviesample.ui.movie
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.MotionEvent
-import androidx.recyclerview.widget.RecyclerView
 import com.example.navermoviesample.BR
 import com.example.navermoviesample.R
 import com.example.navermoviesample.base.BaseFragment
@@ -30,23 +29,15 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
         binding.setVariable(BR.vm, vm)
     }
 
+    @SuppressLint("CheckResult")
     private fun setOnItemTouchListener(){
-        movieRecyclerView.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
-            //todo 터치가 10초동안 1번 일때
-            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-                val child = rv.findChildViewUnder(e.x, e.y)
-                val position = rv.getChildAdapterPosition(child!!)
-
-                val webIntent: Intent = Uri.parse(vm.movieItems.value!![position].link).let { webpage ->
+        movieAdapter.getOnItemClickObservable().subscribe {
+            val webIntent: Intent =
+                Uri.parse(vm.movieItems.value!![it].link).let { webpage ->
                     Intent(Intent.ACTION_VIEW, webpage)
                 }
-                startActivity(webIntent)
-                return false
-            }
-
-            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
-            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
-        })
+            startActivity(webIntent)
+        }
     }
 
     private fun setAdapter() {

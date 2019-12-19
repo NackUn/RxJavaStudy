@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.subjects.PublishSubject
 
 class BaseRecyclerView {
     abstract class BaseAdapter<ITEM : Any, B : ViewDataBinding>(
@@ -13,6 +14,7 @@ class BaseRecyclerView {
         private val bindingVariabledId: Int
     ) : RecyclerView.Adapter<BaseViewHolder<B>>() {
 
+        private val onItemClickSubject = PublishSubject.create<Int>()
         private val items = mutableListOf<ITEM>()
 
         fun setItems(items: List<ITEM>?) {
@@ -24,6 +26,8 @@ class BaseRecyclerView {
             }
         }
 
+        fun getOnItemClickObservable() = onItemClickSubject
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = object : BaseViewHolder<B>(
             layoutRes = layoutRes,
             parent = parent,
@@ -32,7 +36,12 @@ class BaseRecyclerView {
 
         override fun getItemCount() = items.size
 
-        override fun onBindViewHolder(holder: BaseViewHolder<B>, position: Int) = items[position].let(holder::bind)
+        override fun onBindViewHolder(holder: BaseViewHolder<B>, position: Int) {
+            items[position].let(holder::bind)
+            holder.itemView.setOnClickListener { it ->
+                onItemClickSubject.onNext(holder.adapterPosition)
+            }
+        }
     }
 
     abstract class BaseViewHolder<B : ViewDataBinding>(
