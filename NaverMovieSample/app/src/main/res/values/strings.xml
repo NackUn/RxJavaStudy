@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">부스트캠프 사전과제</string>
+    <string name="hint_search_word">검색하실 영화 제목을 입력해주세요.</string>
 </resources>
