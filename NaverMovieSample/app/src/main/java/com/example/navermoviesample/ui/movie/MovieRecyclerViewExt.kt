@@ -7,7 +7,7 @@ import com.example.navermoviesample.vo.MovieItem
 
 @BindingAdapter("setItems")
 fun RecyclerView.setItems(items: List<MovieItem>) {
-    (this.adapter as? BaseRecyclerView.BaseAdapter<*, *>)?.run {
+    (this.adapter as? BaseRecyclerView.BaseAdapter<Any, *>)?.run {
         setItems(items)
         notifyDataSetChanged()
     }
