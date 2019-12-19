@@ -3,15 +3,16 @@ package com.example.navermoviesample.ui.movie
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.navermoviesample.base.BaseViewModel
+import com.example.navermoviesample.data.DataSource
 import com.example.navermoviesample.network.NaverApi
 import com.example.navermoviesample.vo.MovieItem
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MovieViewModel() : BaseViewModel() {
+class MovieViewModel(
+    private val dataSource: DataSource
+) : BaseViewModel() {
     private val naverApi: NaverApi
 
     private val _movieItems = MutableLiveData<List<MovieItem>>()
@@ -31,14 +32,14 @@ class MovieViewModel() : BaseViewModel() {
     }
 
     fun showMovies() {
-        naverApi.run {
-            this.requestMovies(searchWord.value!!)
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { searchResult -> _movieItems.value = searchResult.movieItems },
-                    { thowable -> thowable.message }
-                )
-        }
+        dataSource.requestMovies(
+            searchWord.value!!,
+            onSearchSuccess = {
+                _movieItems.value = it
+            },
+            onError = {
+                it.message
+            }
+        )
     }
 }
