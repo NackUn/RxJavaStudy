@@ -19,14 +19,16 @@ class MovieViewModel(
     }
 
     fun showMovies() {
-        repository.requestMovies(
-            searchWord.value!!,
-            onSearchSuccess = {
-                _movieItems.value = it
-            },
-            onError = {
-                it.message
-            }
-        )
+        searchWord.value?.let {
+            repository.requestMovies(
+                it,
+                onSearchSuccess = {
+                    _movieItems.value = it
+                },
+                onError = {
+                    it.message
+                }
+            )
+        }
     }
 }
