@@ -1,6 +1,9 @@
 package com.example.navermoviesample.di
 
 import com.example.navermoviesample.network.NaverApi
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.Converter
@@ -14,6 +17,7 @@ fun getNetworkModule(baseUrl: String) = module {
             .baseUrl(baseUrl)
             .addConverterFactory(get())
             .addCallAdapterFactory(get())
+            .client(get())
             .build()
             .create(NaverApi::class.java)
     }
@@ -24,5 +28,20 @@ fun getNetworkModule(baseUrl: String) = module {
 
     single {
         RxJava2CallAdapterFactory.create() as CallAdapter.Factory
+    }
+
+    single {
+        OkHttpClient.Builder()
+            .addInterceptor {
+                it.proceed(get { parametersOf(it) })
+            }
+            .build()
+    }
+
+    single { (chain: Interceptor.Chain) ->
+        chain.request().newBuilder()
+            .header("X-Naver-Client-Id", "mPSHgEZRlh0FiYZQW0N3")
+            .header("X-Naver-Client-Secret", "rOdScOfgWl")
+            .build()
     }
 }
