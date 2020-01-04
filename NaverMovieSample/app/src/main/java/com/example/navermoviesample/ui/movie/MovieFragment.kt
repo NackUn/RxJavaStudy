@@ -32,10 +32,8 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
     @SuppressLint("CheckResult")
     private fun setOnItemTouchListener(){
         movieAdapter.getOnItemClickObservable().subscribe {
-            val webIntent: Intent =
-                Uri.parse(vm.movieItems.value!![it].link).let { webpage ->
-                    Intent(Intent.ACTION_VIEW, webpage)
-                }
+            val webIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse(vm.movieItems.value!![it].link))
             startActivity(webIntent)
         }
     }
