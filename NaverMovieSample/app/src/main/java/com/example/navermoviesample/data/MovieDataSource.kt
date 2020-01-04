@@ -1,11 +1,8 @@
 package com.example.navermoviesample.data
 
-import com.example.navermoviesample.vo.MovieItem
+import com.example.navermoviesample.vo.SearchResult
+import io.reactivex.Single
 
 interface MovieDataSource {
-    fun requestMovies(
-        searchWord: String,
-        onSearchSuccess: (List<MovieItem>) -> Unit,
-        onError: (Throwable) -> Unit
-    )
+    fun requestMovies(searchWord: String): Single<SearchResult>
 }
