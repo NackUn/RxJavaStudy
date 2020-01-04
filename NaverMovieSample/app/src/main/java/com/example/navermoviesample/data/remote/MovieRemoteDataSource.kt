@@ -1,15 +1,15 @@
 package com.example.navermoviesample.data.remote
 
 import android.annotation.SuppressLint
-import com.example.navermoviesample.data.DataSource
+import com.example.navermoviesample.data.MovieDataSource
 import com.example.navermoviesample.network.NaverApi
 import com.example.navermoviesample.vo.MovieItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class RemoteDataSource(
+class MovieRemoteDataSource(
     private val retrofitService: NaverApi
-) : DataSource {
+) : MovieDataSource {
     @SuppressLint("CheckResult")
     override fun requestMovies(
         searchWord: String,

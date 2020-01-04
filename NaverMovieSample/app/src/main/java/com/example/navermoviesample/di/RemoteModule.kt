@@ -1,9 +1,9 @@
 package com.example.navermoviesample.di
 
-import com.example.navermoviesample.data.DataSource
-import com.example.navermoviesample.data.remote.RemoteDataSource
+import com.example.navermoviesample.data.MovieDataSource
+import com.example.navermoviesample.data.remote.MovieRemoteDataSource
 import org.koin.dsl.module
 
 val remoteModule = module {
-    single<DataSource> { RemoteDataSource(get()) }
+    single<MovieDataSource> { MovieRemoteDataSource(get()) }
 }

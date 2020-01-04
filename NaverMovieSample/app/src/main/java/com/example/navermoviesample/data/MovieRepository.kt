@@ -2,7 +2,7 @@ package com.example.navermoviesample.data
 
 import com.example.navermoviesample.vo.MovieItem
 
-interface Repository {
+interface MovieRepository {
     fun requestMovies(
         searchWord: String,
         onSearchSuccess: (List<MovieItem>) -> Unit,
