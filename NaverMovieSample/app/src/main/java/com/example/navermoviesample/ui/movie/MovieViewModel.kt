@@ -20,11 +20,13 @@ class MovieViewModel(
 
     fun showMovies() {
         searchWord.value?.let {
-            movieRepository.requestMovies(it)
-                .subscribe(
-                    { _movieItems.value = it.movieItems },
-                    { it.message }
-                )
+            addDisposable(
+                movieRepository.requestMovies(it)
+                    .subscribe(
+                        { _movieItems.value = it.movieItems },
+                        { it.message }
+                    )
+            )
         }
     }
 }
