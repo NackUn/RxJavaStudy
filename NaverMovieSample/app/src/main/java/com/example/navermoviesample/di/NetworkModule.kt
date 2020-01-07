@@ -38,7 +38,7 @@ fun getNetworkModule(baseUrl: String) = module {
             .build()
     }
 
-    single { (chain: Interceptor.Chain) ->
+    factory { (chain: Interceptor.Chain) ->
         chain.request().newBuilder()
             .header("X-Naver-Client-Id", "mPSHgEZRlh0FiYZQW0N3")
             .header("X-Naver-Client-Secret", "rOdScOfgWl")
