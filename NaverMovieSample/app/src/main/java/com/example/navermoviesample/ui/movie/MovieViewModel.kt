@@ -13,6 +13,8 @@ class MovieViewModel(
 ) : BaseViewModel() {
     private val _movieItems = MutableLiveData<List<MovieItem>>()
     val movieItems: LiveData<List<MovieItem>> get() = _movieItems
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> get() = _errorMessage
 
     var searchWord = MutableLiveData<String>()
 
@@ -28,7 +30,7 @@ class MovieViewModel(
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         { _movieItems.value = it.movieItems },
-                        { it.message }
+                        { _errorMessage.value = it.message }
                     )
             )
         }

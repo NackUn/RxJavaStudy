@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.example.navermoviesample.BR
 import com.example.navermoviesample.R
 import com.example.navermoviesample.base.BaseFragment
@@ -42,10 +43,19 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
         movieRecyclerView.adapter = movieAdapter
     }
 
+    private fun setErrorMessageObserver() {
+        vm.errorMessage.observe(this, Observer {
+            it.let {
+                showToast(it)
+            }
+        })
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initViewModel()
         setAdapter()
         setOnItemTouchListener()
+        setErrorMessageObserver()
     }
 }
