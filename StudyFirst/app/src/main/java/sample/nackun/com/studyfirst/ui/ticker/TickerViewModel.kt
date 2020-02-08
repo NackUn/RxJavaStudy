@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import sample.nackun.com.studyfirst.base.BaseViewModel
+import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitMarketUseCase
@@ -13,7 +14,6 @@ import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
 import sample.nackun.com.studyfirst.util.TickerFormatter
 import sample.nackun.com.studyfirst.vo.BithumbTicker
 import sample.nackun.com.studyfirst.vo.CoinOneTicker
-import sample.nackun.com.studyfirst.vo.Ticker
 import sample.nackun.com.studyfirst.vo.UpbitTicker
 
 class TickerViewModel(
@@ -41,10 +41,10 @@ class TickerViewModel(
         _errMsg.value = t
     }
 
-    private fun toTickers(
-        upbitTickers: List<UpbitTicker>,
-        bithumbTickers: List<BithumbTicker>,
-        coinOneTickers: List<CoinOneTicker>
+    private fun onTickersCombine(
+        upbitTickers: List<Ticker>,
+        bithumbTickers: List<Ticker>,
+        coinOneTickers: List<Ticker>
     ) {
         onTickersLoaded(TickerFormatter.combine(upbitTickers, bithumbTickers, coinOneTickers))
     }
@@ -70,7 +70,7 @@ class TickerViewModel(
 
             val coinOneTickers = async { getCoinOneTickersUseCase() }
 
-            toTickers(upbitTickers.await(), bithumbTickers.await(), coinOneTickers.await())
+            onTickersCombine(upbitTickers.await(), bithumbTickers.await(), coinOneTickers.await())
         }
     }
 }

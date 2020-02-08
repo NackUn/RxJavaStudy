@@ -6,11 +6,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import sample.nackun.com.studyfirst.base.BaseViewModel
+import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
 import sample.nackun.com.studyfirst.util.TickerFormatter
-import sample.nackun.com.studyfirst.vo.Ticker
 
 class DetailViewModel(
     private val tickerName: String,
@@ -39,27 +39,36 @@ class DetailViewModel(
         viewModelScope.launch {
             val tickers: MutableList<Ticker> = mutableListOf()
 
-            try {
-                val upbitTickers = async { getUpbitTickersUseCase("KRW-" + tickerName) }
-                val upbitTicker = upbitTickers.await().last()
-                tickers.add(TickerFormatter.toTicker(upbitTicker))
-            } catch (cause: Throwable) {
-
+            async {
+                try {
+                    getUpbitTickersUseCase("KRW-" + tickerName)
+                } catch (cause: Throwable) {
+                    return@async null
+                }
+            }.await()?.let {
+                tickers.add(it.last())
             }
 
-            try {
-                val bithumbTicker = async { getBithumbTickerUseCase(tickerName) }
-                tickers.add(TickerFormatter.toTicker(bithumbTicker.await()))
-            } catch (cause: Throwable) {
-
+            async {
+                try {
+                    getBithumbTickerUseCase(tickerName)
+                } catch (cause: Throwable) {
+                    return@async null
+                }
+            }.await()?.let {
+                tickers.add(it)
             }
 
-            try {
-                val coinOneTicker = async { getCoinOneTickerUseCase(tickerName) }
-                tickers.add(TickerFormatter.toTicker(coinOneTicker.await()))
-            } catch (cause: Throwable) {
-
+            async {
+                try {
+                    getCoinOneTickerUseCase(tickerName)
+                } catch (cause: Throwable) {
+                    return@async null
+                }
+            }.await()?.let {
+                tickers.add(it)
             }
+
             onTickersLoaded(tickers)
         }
     }

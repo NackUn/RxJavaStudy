@@ -2,19 +2,15 @@ package sample.nackun.com.studyfirst.util
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import sample.nackun.com.studyfirst.R
-import sample.nackun.com.studyfirst.vo.BithumbTicker
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
-import sample.nackun.com.studyfirst.vo.Ticker
-import sample.nackun.com.studyfirst.vo.UpbitTicker
+import sample.nackun.com.studyfirst.domain.entity.Ticker
 
 object TickerFormatter {
 
     @SuppressLint("DefaultLocale")
     fun combine(
-        upbitTickers: List<UpbitTicker>,
-        bithumbTickers: List<BithumbTicker>,
-        coinOneTickers: List<CoinOneTicker>
+        upbitTickers: List<Ticker>,
+        bithumbTickers: List<Ticker>,
+        coinOneTickers: List<Ticker>
     ): List<Ticker> {
         val combineList = mutableListOf<Ticker>()
         combineList.clear()
@@ -22,87 +18,62 @@ object TickerFormatter {
         val markets = mutableListOf<String>()
 
         upbitTickers.forEach {
-            markets.add(it.market.split("-")[1])
+            markets.add(it.market)
         }
         bithumbTickers.forEach {
-            if (!markets.contains(it.getMarket())) {
-                markets.add(it.getMarket())
+            if (!markets.contains(it.market)) {
+                markets.add(it.market)
             }
         }
         coinOneTickers.forEach {
-            if (!markets.contains(it.currency.toUpperCase())) {
-                markets.add(it.currency.toUpperCase())
+            if (!markets.contains(it.market)) {
+                markets.add(it.market)
             }
         }
 
+        val emptyTicker = Ticker(
+            0.0,
+            0.0,
+            "",
+            0.0,
+            0.0,
+            0
+        )
+
         markets.forEach { market ->
             val upbitTicker = upbitTickers.find {
-                it.market.split("-")[1].equals(market)
-            }?.let {
-                toTicker(it)
-            }
+                it.market.equals(market)
+            } ?: emptyTicker
 
             val bithumbTicker = bithumbTickers.find {
-                it.getMarket().equals(market)
-            }?.let {
-                toTicker(it)
-            }
+                it.market.equals(market)
+            } ?: emptyTicker
 
             val coinOneTicker = coinOneTickers.find {
-                it.currency.toUpperCase().equals(market)
-            }?.let {
-                toTicker(it)
-            }
+                it.market.equals(market)
+            } ?: emptyTicker
 
-            val a = upbitTicker?.accTradePrice24h ?: 0.0
-            val b = bithumbTicker?.accTradePrice24h ?: 0.0
-            val c = coinOneTicker?.accTradePrice24h ?: 0.0
+            val a = upbitTicker.accTradePrice24h
+            val b = bithumbTicker.accTradePrice24h
+            val c = coinOneTicker.accTradePrice24h
 
             if (a > b) {
                 if (a > c) {
-                    combineList.add(upbitTicker!!)
+                    combineList.add(upbitTicker)
                 } else {
-                    combineList.add(coinOneTicker!!)
+                    combineList.add(coinOneTicker)
                 }
             } else {
                 if (b > c) {
-                    combineList.add(bithumbTicker!!)
+                    combineList.add(bithumbTicker)
                 } else {
-                    combineList.add(coinOneTicker!!)
+                    combineList.add(coinOneTicker)
                 }
             }
         }
 
         return combineList
     }
-
-    fun toTicker(upbitTicker: UpbitTicker): Ticker = Ticker(
-        upbitTicker.accTradePrice24h,
-        upbitTicker.changePrice,
-        upbitTicker.market,
-        upbitTicker.prevClosingPrice,
-        upbitTicker.tradePrice,
-        R.drawable.upbit_img
-    )
-
-    fun toTicker(bithumbTicker: BithumbTicker): Ticker = Ticker(
-        bithumbTicker.accTradeValue24H,
-        bithumbTicker.fluctate24H,
-        bithumbTicker.getMarket(),
-        bithumbTicker.prevClosingPrice,
-        bithumbTicker.closingPrice,
-        R.drawable.bithumb_img
-    )
-
-    @SuppressLint("DefaultLocale")
-    fun toTicker(coinOneTicker: CoinOneTicker): Ticker = Ticker(
-        coinOneTicker.volume.toDouble() * coinOneTicker.last.toDouble(),
-        coinOneTicker.first.toDouble() - coinOneTicker.last.toDouble(),
-        coinOneTicker.currency.toUpperCase(),
-        coinOneTicker.yesterdayLast.toDouble(),
-        coinOneTicker.last.toDouble(),
-        R.drawable.coinone_img
-    )
 
     fun convertTo(target: List<Ticker>): List<Map<String, String>> {
         val convertList = mutableListOf<Map<String, String>>()
