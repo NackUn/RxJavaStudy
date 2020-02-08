@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.domain
+package sample.nackun.com.studyfirst.domain.usecase
 
 import com.google.gson.Gson
 import sample.nackun.com.studyfirst.data.upbit.CoinOneRepository

@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import sample.nackun.com.studyfirst.base.BaseViewModel
-import sample.nackun.com.studyfirst.domain.GetBithumbTickerUseCase
-import sample.nackun.com.studyfirst.domain.GetCoinOneTickerUseCase
-import sample.nackun.com.studyfirst.domain.GetUpbitTickersUseCase
+import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickerUseCase
+import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickerUseCase
+import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
 import sample.nackun.com.studyfirst.util.TickerFormatter
 import sample.nackun.com.studyfirst.vo.Ticker
 

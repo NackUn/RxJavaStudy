@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.domain
+package sample.nackun.com.studyfirst.domain.usecase
 
 import sample.nackun.com.studyfirst.data.upbit.CoinOneRepository
 import sample.nackun.com.studyfirst.vo.CoinOneTicker

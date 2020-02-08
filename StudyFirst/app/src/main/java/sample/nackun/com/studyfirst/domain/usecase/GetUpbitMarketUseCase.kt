@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.domain
+package sample.nackun.com.studyfirst.domain.usecase
 
 import sample.nackun.com.studyfirst.data.upbit.UpbitRepository
 import sample.nackun.com.studyfirst.vo.UpbitMarket
