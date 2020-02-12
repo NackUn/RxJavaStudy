@@ -10,7 +10,7 @@ import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
-import sample.nackun.com.studyfirst.util.TickerFormatter
+import sample.nackun.com.studyfirst.presentation.util.TickerFormatter
 
 class DetailViewModel(
     private val tickerName: String,

@@ -12,7 +12,7 @@ import sample.nackun.com.studyfirst.presentation.base.BaseFragment
 import sample.nackun.com.studyfirst.databinding.TickerFragmentBinding
 import sample.nackun.com.studyfirst.databinding.TickerItemBinding
 import sample.nackun.com.studyfirst.presentation.detail.DetailActivity
-import sample.nackun.com.studyfirst.util.ClickAdapter
+import sample.nackun.com.studyfirst.presentation.util.ClickAdapter
 
 class TickerFragment : BaseFragment<TickerFragmentBinding, TickerViewModel>(
     R.layout.ticker_fragment

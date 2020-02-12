@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.util
+package sample.nackun.com.studyfirst.presentation.util
 
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding

@@ -11,7 +11,7 @@ import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitMarketUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
-import sample.nackun.com.studyfirst.util.TickerFormatter
+import sample.nackun.com.studyfirst.presentation.util.TickerFormatter
 
 class TickerViewModel(
     private val getUpbitMarketUseCase: GetUpbitMarketUseCase,

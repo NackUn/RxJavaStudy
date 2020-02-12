@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.util
+package sample.nackun.com.studyfirst.presentation.util
 
 import android.annotation.SuppressLint
 import sample.nackun.com.studyfirst.R
