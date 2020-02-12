@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.data.bithumb
+package sample.nackun.com.studyfirst.data.source.bithumb
 
 import sample.nackun.com.studyfirst.vo.BithumbResult
 

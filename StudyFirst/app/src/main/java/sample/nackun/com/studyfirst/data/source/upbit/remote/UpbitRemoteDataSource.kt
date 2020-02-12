@@ -1,6 +1,6 @@
-package sample.nackun.com.studyfirst.data.upbit.remote
+package sample.nackun.com.studyfirst.data.source.upbit.remote
 
-import sample.nackun.com.studyfirst.data.upbit.UpbitDataSource
+import sample.nackun.com.studyfirst.data.source.upbit.UpbitDataSource
 import sample.nackun.com.studyfirst.data.api.UpbitApi
 
 class UpbitRemoteDataSource(

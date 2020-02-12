@@ -1,6 +1,6 @@
-package sample.nackun.com.studyfirst.data.coinone.remote
+package sample.nackun.com.studyfirst.data.source.coinone.remote
 
-import sample.nackun.com.studyfirst.data.upbit.CoinOneDataSource
+import sample.nackun.com.studyfirst.data.source.upbit.CoinOneDataSource
 import sample.nackun.com.studyfirst.data.api.CoinOneApi
 import sample.nackun.com.studyfirst.vo.CoinOneTicker
 

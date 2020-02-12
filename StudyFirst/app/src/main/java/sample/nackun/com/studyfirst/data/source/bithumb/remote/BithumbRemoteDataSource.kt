@@ -1,6 +1,6 @@
-package sample.nackun.com.studyfirst.data.bithumb.remote
+package sample.nackun.com.studyfirst.data.source.bithumb.remote
 
-import sample.nackun.com.studyfirst.data.bithumb.BithumbDataSource
+import sample.nackun.com.studyfirst.data.source.bithumb.BithumbDataSource
 import sample.nackun.com.studyfirst.data.api.BithumbApi
 
 class BithumbRemoteDataSource(

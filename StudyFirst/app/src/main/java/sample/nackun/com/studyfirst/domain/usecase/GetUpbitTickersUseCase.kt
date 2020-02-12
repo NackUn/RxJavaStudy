@@ -1,6 +1,6 @@
 package sample.nackun.com.studyfirst.domain.usecase
 
-import sample.nackun.com.studyfirst.data.upbit.UpbitRepository
+import sample.nackun.com.studyfirst.data.source.upbit.UpbitRepository
 import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.util.toTicker
 

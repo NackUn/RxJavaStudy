@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.data.upbit
+package sample.nackun.com.studyfirst.data.source.upbit
 
 class UpbitRepositoryImpl(
     private val remoteDataSource: UpbitDataSource

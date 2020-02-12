@@ -1,7 +1,7 @@
 package sample.nackun.com.studyfirst.domain.usecase
 
 import com.google.gson.Gson
-import sample.nackun.com.studyfirst.data.bithumb.BithumbRepository
+import sample.nackun.com.studyfirst.data.source.bithumb.BithumbRepository
 import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.util.toTicker
 import sample.nackun.com.studyfirst.vo.BithumbTicker
