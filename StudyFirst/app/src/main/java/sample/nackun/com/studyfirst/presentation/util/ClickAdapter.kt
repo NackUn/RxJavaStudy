@@ -7,7 +7,7 @@ import sample.nackun.com.studyfirst.presentation.base.BaseRecyclerView
 
 open class ClickAdapter<ITEM : Any, B : ViewDataBinding>(
     @LayoutRes private val layoutRes: Int,
-    private val bindingVariabledId: Int
+    bindingVariabledId: Int
 ) : BaseRecyclerView.BaseAdapter<ITEM, B>(
     layoutRes,
     bindingVariabledId
