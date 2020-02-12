@@ -2,7 +2,6 @@ package sample.nackun.com.studyfirst.data.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class BithumbTicker(
 //    최근 24시간 거래금액 = "acc_trade_value_24H"
     @SerializedName("acc_trade_value_24H")
