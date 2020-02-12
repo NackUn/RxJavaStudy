@@ -5,10 +5,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".presentation.ui.detail.DetailActivity">
+        tools:context=".presentation.detail.DetailActivity">
     <fragment
             android:id="@+id/detail_fragment"
-            android:name="sample.nackun.com.studyfirst.presentation.ui.detail.DetailFragment"
+            android:name="sample.nackun.com.studyfirst.presentation.detail.DetailFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

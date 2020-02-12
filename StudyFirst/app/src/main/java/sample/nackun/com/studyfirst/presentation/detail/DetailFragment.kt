@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.ui.detail
+package sample.nackun.com.studyfirst.presentation.detail
 
 import android.os.Bundle
 import kotlinx.android.synthetic.main.detail_fragment.*

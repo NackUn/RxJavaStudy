@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ticker
 
 import androidx.databinding.ViewDataBinding
 import sample.nackun.com.studyfirst.R

@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.ui.detail
+package sample.nackun.com.studyfirst.presentation.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ticker
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

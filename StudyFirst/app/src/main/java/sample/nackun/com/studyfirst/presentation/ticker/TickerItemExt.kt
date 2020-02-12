@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ticker
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
