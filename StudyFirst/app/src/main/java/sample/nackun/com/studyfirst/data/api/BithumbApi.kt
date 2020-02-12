@@ -2,7 +2,7 @@ package sample.nackun.com.studyfirst.data.api
 
 import retrofit2.http.GET
 import retrofit2.http.Path
-import sample.nackun.com.studyfirst.vo.BithumbResult
+import sample.nackun.com.studyfirst.presentation.vo.BithumbResult
 
 interface BithumbApi {
     @GET("public/ticker/ALL")

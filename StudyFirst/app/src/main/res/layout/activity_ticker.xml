@@ -5,10 +5,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.ticker.TickerActivity">
+        tools:context=".presentation.ui.ticker.TickerActivity">
     <fragment
             android:id="@+id/tickerFragment"
-            android:name="sample.nackun.com.studyfirst.ui.ticker.TickerFragment"
+            android:name="sample.nackun.com.studyfirst.presentation.ui.ticker.TickerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

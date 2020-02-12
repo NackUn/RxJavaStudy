@@ -1,11 +1,11 @@
-package sample.nackun.com.studyfirst.ui.detail
+package sample.nackun.com.studyfirst.presentation.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import sample.nackun.com.studyfirst.base.BaseViewModel
+import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
 import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickerUseCase

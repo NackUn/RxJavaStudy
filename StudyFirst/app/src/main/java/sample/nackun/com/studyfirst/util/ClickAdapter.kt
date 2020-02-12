@@ -3,7 +3,7 @@ package sample.nackun.com.studyfirst.util
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import io.reactivex.subjects.PublishSubject
-import sample.nackun.com.studyfirst.base.BaseRecyclerView
+import sample.nackun.com.studyfirst.presentation.base.BaseRecyclerView
 
 open class ClickAdapter<ITEM : Any, B : ViewDataBinding>(
     @LayoutRes private val layoutRes: Int,

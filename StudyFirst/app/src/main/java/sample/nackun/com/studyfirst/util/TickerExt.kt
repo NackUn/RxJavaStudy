@@ -3,9 +3,9 @@ package sample.nackun.com.studyfirst.util
 import android.annotation.SuppressLint
 import sample.nackun.com.studyfirst.R
 import sample.nackun.com.studyfirst.domain.entity.Ticker
-import sample.nackun.com.studyfirst.vo.BithumbTicker
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
-import sample.nackun.com.studyfirst.vo.UpbitTicker
+import sample.nackun.com.studyfirst.presentation.vo.BithumbTicker
+import sample.nackun.com.studyfirst.presentation.vo.CoinOneTicker
+import sample.nackun.com.studyfirst.presentation.vo.UpbitTicker
 
 fun UpbitTicker.toTicker(): Ticker =
     Ticker(

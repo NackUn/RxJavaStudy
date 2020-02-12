@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="detailViewModel"
-                type="sample.nackun.com.studyfirst.ui.detail.DetailViewModel"/>
+                type="sample.nackun.com.studyfirst.presentation.ui.detail.DetailViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

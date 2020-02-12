@@ -2,7 +2,7 @@ package sample.nackun.com.studyfirst.data.source.coinone.remote
 
 import sample.nackun.com.studyfirst.data.source.upbit.CoinOneDataSource
 import sample.nackun.com.studyfirst.data.api.CoinOneApi
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
+import sample.nackun.com.studyfirst.presentation.vo.CoinOneTicker
 
 class CoinOneRemoteDataSource(
     private val retrofitService: CoinOneApi

@@ -2,7 +2,7 @@ package sample.nackun.com.studyfirst.data.api
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
+import sample.nackun.com.studyfirst.presentation.vo.CoinOneTicker
 
 interface CoinOneApi {
     @GET("/ticker?currency=all")

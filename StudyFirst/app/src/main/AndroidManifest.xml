@@ -8,12 +8,12 @@
                  android:roundIcon="@mipmap/ic_launcher_round"
                  android:supportsRtl="true"
                  android:theme="@style/AppTheme">
-        <activity android:name=".ui.ticker.TickerActivity">
+        <activity android:name="sample.nackun.com.studyfirst.presentation.ui.ticker.TickerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.detail.DetailActivity"/>
+        <activity android:name="sample.nackun.com.studyfirst.presentation.ui.detail.DetailActivity"/>
     </application>
 </manifest>

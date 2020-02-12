@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ui.ticker
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.ticker_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sample.nackun.com.studyfirst.BR
 import sample.nackun.com.studyfirst.R
-import sample.nackun.com.studyfirst.base.BaseFragment
+import sample.nackun.com.studyfirst.presentation.base.BaseFragment
 import sample.nackun.com.studyfirst.databinding.TickerFragmentBinding
 import sample.nackun.com.studyfirst.databinding.TickerItemBinding
-import sample.nackun.com.studyfirst.ui.detail.DetailActivity
+import sample.nackun.com.studyfirst.presentation.ui.detail.DetailActivity
 import sample.nackun.com.studyfirst.util.ClickAdapter
 
 class TickerFragment : BaseFragment<TickerFragmentBinding, TickerViewModel>(

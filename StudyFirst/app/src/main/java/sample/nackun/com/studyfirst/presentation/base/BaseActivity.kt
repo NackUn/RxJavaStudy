@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.base
+package sample.nackun.com.studyfirst.presentation.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

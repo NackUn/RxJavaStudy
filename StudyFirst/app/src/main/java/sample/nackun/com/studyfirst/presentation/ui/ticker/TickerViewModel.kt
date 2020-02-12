@@ -1,20 +1,17 @@
-package sample.nackun.com.studyfirst.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ui.ticker
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import sample.nackun.com.studyfirst.base.BaseViewModel
+import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
 import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitMarketUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
 import sample.nackun.com.studyfirst.util.TickerFormatter
-import sample.nackun.com.studyfirst.vo.BithumbTicker
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
-import sample.nackun.com.studyfirst.vo.UpbitTicker
 
 class TickerViewModel(
     private val getUpbitMarketUseCase: GetUpbitMarketUseCase,

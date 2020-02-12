@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.ui.detail
+package sample.nackun.com.studyfirst.presentation.ui.detail
 
 import android.os.Bundle
 import kotlinx.android.synthetic.main.detail_fragment.*
@@ -6,8 +6,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import sample.nackun.com.studyfirst.BR
 import sample.nackun.com.studyfirst.R
-import sample.nackun.com.studyfirst.base.BaseFragment
-import sample.nackun.com.studyfirst.base.BaseRecyclerView
+import sample.nackun.com.studyfirst.presentation.base.BaseFragment
+import sample.nackun.com.studyfirst.presentation.base.BaseRecyclerView
 import sample.nackun.com.studyfirst.databinding.DetailFragmentBinding
 import sample.nackun.com.studyfirst.databinding.TickerItemBinding
 

@@ -1,8 +1,8 @@
-package sample.nackun.com.studyfirst.ui.ticker
+package sample.nackun.com.studyfirst.presentation.ui.ticker
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import sample.nackun.com.studyfirst.base.BaseRecyclerView
+import sample.nackun.com.studyfirst.presentation.base.BaseRecyclerView
 
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("setItems")

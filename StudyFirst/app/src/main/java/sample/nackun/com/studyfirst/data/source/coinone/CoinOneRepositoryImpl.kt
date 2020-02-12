@@ -1,6 +1,6 @@
 package sample.nackun.com.studyfirst.data.source.upbit
 
-import sample.nackun.com.studyfirst.vo.CoinOneTicker
+import sample.nackun.com.studyfirst.presentation.vo.CoinOneTicker
 
 class CoinOneRepositoryImpl(
     private val remoteDataSource: CoinOneDataSource
