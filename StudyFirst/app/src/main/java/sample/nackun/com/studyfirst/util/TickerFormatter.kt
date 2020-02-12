@@ -53,18 +53,18 @@ object TickerFormatter {
                 it.market.equals(market)
             } ?: emptyTicker
 
-            val a = upbitTicker.accTradePrice24h
-            val b = bithumbTicker.accTradePrice24h
-            val c = coinOneTicker.accTradePrice24h
+            val upbitTickerAccTradePrice24h = upbitTicker.accTradePrice24h
+            val bithumbTickerAccTradePrice24h = bithumbTicker.accTradePrice24h
+            val coinOneTickerAccTradePrice24h = coinOneTicker.accTradePrice24h
 
-            if (a > b) {
-                if (a > c) {
+            if (upbitTickerAccTradePrice24h > bithumbTickerAccTradePrice24h) {
+                if (upbitTickerAccTradePrice24h > coinOneTickerAccTradePrice24h) {
                     combineList.add(upbitTicker)
                 } else {
                     combineList.add(coinOneTicker)
                 }
             } else {
-                if (b > c) {
+                if (bithumbTickerAccTradePrice24h > coinOneTickerAccTradePrice24h) {
                     combineList.add(bithumbTicker)
                 } else {
                     combineList.add(coinOneTicker)
