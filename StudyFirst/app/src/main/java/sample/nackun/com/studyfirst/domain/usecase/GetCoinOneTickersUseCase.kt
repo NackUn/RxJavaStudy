@@ -3,7 +3,7 @@ package sample.nackun.com.studyfirst.domain.usecase
 import com.google.gson.Gson
 import sample.nackun.com.studyfirst.data.source.upbit.CoinOneRepository
 import sample.nackun.com.studyfirst.domain.entity.Ticker
-import sample.nackun.com.studyfirst.presentation.util.toTicker
+import sample.nackun.com.studyfirst.data.util.toTicker
 import sample.nackun.com.studyfirst.data.model.CoinOneTicker
 
 class GetCoinOneTickersUseCase(private val repository: CoinOneRepository) {
