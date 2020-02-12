@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.di
+package sample.nackun.com.studyfirst.presentation.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

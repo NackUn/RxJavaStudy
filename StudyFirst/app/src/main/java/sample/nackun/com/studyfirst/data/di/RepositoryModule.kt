@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.di
+package sample.nackun.com.studyfirst.data.di
 
 import org.koin.dsl.module
 import sample.nackun.com.studyfirst.data.source.bithumb.BithumbRepository

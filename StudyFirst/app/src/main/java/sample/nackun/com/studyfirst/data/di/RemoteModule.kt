@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.di
+package sample.nackun.com.studyfirst.data.di
 
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module

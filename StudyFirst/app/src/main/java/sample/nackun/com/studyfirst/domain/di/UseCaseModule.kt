@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.di
+package sample.nackun.com.studyfirst.domain.di
 
 import org.koin.dsl.module
 import sample.nackun.com.studyfirst.domain.usecase.*
