@@ -2,7 +2,7 @@ package sample.nackun.com.studyfirst.presentation.util
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import sample.nackun.com.studyfirst.domain.entity.Ticker
+import sample.nackun.com.studyfirst.presentation.model.Ticker
 
 object TickerFormatter {
 

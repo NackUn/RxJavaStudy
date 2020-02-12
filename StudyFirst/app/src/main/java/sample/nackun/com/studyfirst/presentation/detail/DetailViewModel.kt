@@ -5,12 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
-import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickerUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
+import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
+import sample.nackun.com.studyfirst.presentation.model.Ticker
 import sample.nackun.com.studyfirst.presentation.util.TickerFormatter
+import sample.nackun.com.studyfirst.presentation.util.toPresentation
 
 class DetailViewModel(
     private val tickerName: String,
@@ -30,14 +31,14 @@ class DetailViewModel(
     private fun onError(t: Throwable) {
         _errMsg.value = t
     }
-
+    
     private fun onTickersLoaded(tickers: List<Ticker>) {
         _tickers.value = TickerFormatter.convertTo(tickers)
     }
 
     fun showTickers() {
         viewModelScope.launch {
-            val tickers: MutableList<Ticker> = mutableListOf()
+            val tickers: MutableList<sample.nackun.com.studyfirst.domain.entity.Ticker> = mutableListOf()
 
             async {
                 try {
@@ -69,7 +70,7 @@ class DetailViewModel(
                 tickers.add(it)
             }
 
-            onTickersLoaded(tickers)
+            onTickersLoaded(tickers.toPresentation())
         }
     }
 }

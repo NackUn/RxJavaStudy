@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
-import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.domain.usecase.GetBithumbTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetCoinOneTickersUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitMarketUseCase
 import sample.nackun.com.studyfirst.domain.usecase.GetUpbitTickersUseCase
+import sample.nackun.com.studyfirst.presentation.base.BaseViewModel
+import sample.nackun.com.studyfirst.presentation.model.Ticker
 import sample.nackun.com.studyfirst.presentation.util.TickerFormatter
+import sample.nackun.com.studyfirst.presentation.util.toPresentation
 
 class TickerViewModel(
     private val getUpbitMarketUseCase: GetUpbitMarketUseCase,
@@ -43,7 +44,13 @@ class TickerViewModel(
         bithumbTickers: List<Ticker>,
         coinOneTickers: List<Ticker>
     ) {
-        onTickersLoaded(TickerFormatter.combine(upbitTickers, bithumbTickers, coinOneTickers))
+        onTickersLoaded(
+            TickerFormatter.combine(
+                upbitTickers,
+                bithumbTickers,
+                coinOneTickers
+            )
+        )
     }
 
     private fun onTickersLoaded(tickers: List<Ticker>) {
@@ -67,7 +74,11 @@ class TickerViewModel(
 
             val coinOneTickers = async { getCoinOneTickersUseCase() }
 
-            onTickersCombine(upbitTickers.await(), bithumbTickers.await(), coinOneTickers.await())
+            onTickersCombine(
+                upbitTickers.await().toPresentation(),
+                bithumbTickers.await().toPresentation(),
+                coinOneTickers.await().toPresentation()
+            )
         }
     }
 }
