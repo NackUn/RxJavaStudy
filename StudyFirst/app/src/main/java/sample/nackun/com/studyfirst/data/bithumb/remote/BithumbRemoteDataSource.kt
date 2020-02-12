@@ -1,7 +1,7 @@
 package sample.nackun.com.studyfirst.data.bithumb.remote
 
 import sample.nackun.com.studyfirst.data.bithumb.BithumbDataSource
-import sample.nackun.com.studyfirst.network.BithumbApi
+import sample.nackun.com.studyfirst.data.api.BithumbApi
 
 class BithumbRemoteDataSource(
     private val retrofitService: BithumbApi

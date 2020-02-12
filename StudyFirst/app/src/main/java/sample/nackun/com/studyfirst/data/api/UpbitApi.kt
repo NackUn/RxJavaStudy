@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.network
+package sample.nackun.com.studyfirst.data.api
 
 import retrofit2.http.GET
 import retrofit2.http.Query

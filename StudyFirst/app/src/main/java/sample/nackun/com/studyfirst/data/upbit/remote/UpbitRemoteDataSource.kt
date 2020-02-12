@@ -1,7 +1,7 @@
 package sample.nackun.com.studyfirst.data.upbit.remote
 
 import sample.nackun.com.studyfirst.data.upbit.UpbitDataSource
-import sample.nackun.com.studyfirst.network.UpbitApi
+import sample.nackun.com.studyfirst.data.api.UpbitApi
 
 class UpbitRemoteDataSource(
     private val retrofitService: UpbitApi

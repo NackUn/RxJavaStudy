@@ -9,9 +9,9 @@ import sample.nackun.com.studyfirst.data.coinone.remote.CoinOneRemoteDataSource
 import sample.nackun.com.studyfirst.data.upbit.CoinOneDataSource
 import sample.nackun.com.studyfirst.data.upbit.UpbitDataSource
 import sample.nackun.com.studyfirst.data.upbit.remote.UpbitRemoteDataSource
-import sample.nackun.com.studyfirst.network.BithumbApi
-import sample.nackun.com.studyfirst.network.CoinOneApi
-import sample.nackun.com.studyfirst.network.UpbitApi
+import sample.nackun.com.studyfirst.data.api.BithumbApi
+import sample.nackun.com.studyfirst.data.api.CoinOneApi
+import sample.nackun.com.studyfirst.data.api.UpbitApi
 
 val remoteModule = module {
     single<UpbitApi> { get<Retrofit> { parametersOf("https://api.upbit.com") }.create(UpbitApi::class.java) }
