@@ -1,6 +1,6 @@
 package sample.nackun.com.studyfirst.data.source.bithumb
 
-import sample.nackun.com.studyfirst.presentation.vo.BithumbResult
+import sample.nackun.com.studyfirst.data.model.BithumbResult
 
 interface BithumbRepository {
     suspend fun requestAllTicker(): BithumbResult

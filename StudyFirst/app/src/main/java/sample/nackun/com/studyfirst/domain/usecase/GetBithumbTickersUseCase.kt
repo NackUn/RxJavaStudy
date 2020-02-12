@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import sample.nackun.com.studyfirst.data.source.bithumb.BithumbRepository
 import sample.nackun.com.studyfirst.domain.entity.Ticker
 import sample.nackun.com.studyfirst.presentation.util.toTicker
-import sample.nackun.com.studyfirst.presentation.vo.BithumbTicker
+import sample.nackun.com.studyfirst.data.model.BithumbTicker
 
 class GetBithumbTickersUseCase(private val repository: BithumbRepository) {
     suspend operator fun invoke(): List<Ticker> =
