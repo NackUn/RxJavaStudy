@@ -1,4 +1,4 @@
-package sample.nackun.com.studyfirst.presentation.vo
+package sample.nackun.com.studyfirst.presentation.model
 
 data class Ticker(
     val accTradePrice24h: Double,
