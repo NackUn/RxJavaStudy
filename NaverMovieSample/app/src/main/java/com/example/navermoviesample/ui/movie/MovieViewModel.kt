@@ -1,5 +1,6 @@
 package com.example.navermoviesample.ui.movie
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.navermoviesample.base.BaseViewModel
@@ -8,7 +9,7 @@ import com.example.navermoviesample.vo.MovieItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MovieViewModel(
+class MovieViewModel @ViewModelInject constructor(
     private val movieRepository: MovieRepository
 ) : BaseViewModel() {
     private val _movieItems = MutableLiveData<List<MovieItem>>()

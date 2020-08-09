@@ -1,47 +1,70 @@
 package com.example.navermoviesample.di
 
 import com.example.navermoviesample.network.NaverApi
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import org.koin.core.parameter.parametersOf
-import org.koin.dsl.module
+import okhttp3.Request
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
-fun getNetworkModule(baseUrl: String) = module {
-    single {
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(get())
-            .addCallAdapterFactory(get())
-            .client(get())
+@Module
+@InstallIn(ApplicationComponent::class)
+object NetworkModule {
+
+    private const val BASE_URL = "https://openapi.naver.com"
+
+    @Provides
+    @Singleton
+    fun provideGsonConverterFactory(): Converter.Factory {
+        return GsonConverterFactory.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRxJava2CallAdapterFactory(): CallAdapter.Factory {
+        return RxJava2CallAdapterFactory.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideChain(chain: Interceptor.Chain): Request {
+        return chain.request().newBuilder()
+            .header("X-Naver-Client-Id", "mPSHgEZRlh0FiYZQW0N3")
+            .header("X-Naver-Client-Secret", "rOdScOfgWl")
             .build()
-            .create(NaverApi::class.java)
     }
 
-    single {
-        GsonConverterFactory.create() as Converter.Factory
-    }
-
-    single {
-        RxJava2CallAdapterFactory.create() as CallAdapter.Factory
-    }
-
-    single {
-        OkHttpClient.Builder()
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
             .addInterceptor {
-                it.proceed(get { parametersOf(it) })
+                it.proceed(provideChain(it))
             }
             .build()
     }
 
-    factory { (chain: Interceptor.Chain) ->
-        chain.request().newBuilder()
-            .header("X-Naver-Client-Id", "mPSHgEZRlh0FiYZQW0N3")
-            .header("X-Naver-Client-Secret", "rOdScOfgWl")
+    @Provides
+    @Singleton
+    fun provideRetrofit(
+        gsonConverterFactory: Converter.Factory,
+        rxJava2CallAdapterFactory: CallAdapter.Factory,
+        okHttpClient: OkHttpClient
+    ): NaverApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(rxJava2CallAdapterFactory)
+            .client(okHttpClient)
             .build()
+            .create(NaverApi::class.java)
     }
 }

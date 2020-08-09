@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.navermoviesample.BR
 import com.example.navermoviesample.R
@@ -12,9 +13,10 @@ import com.example.navermoviesample.base.BaseRecyclerView
 import com.example.navermoviesample.databinding.MovieFragmentBinding
 import com.example.navermoviesample.databinding.MovieItemBinding
 import com.example.navermoviesample.vo.MovieItem
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.movie_fragment.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@AndroidEntryPoint
 class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
     R.layout.movie_fragment
 ) {
@@ -22,16 +24,16 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
         object : BaseRecyclerView.BaseAdapter<List<MovieItem>, MovieItemBinding>(
             R.layout.movie_item,
             BR.movieItem
-        ){}
+        ) {}
 
-    override val vm: MovieViewModel by viewModel()
+    override val vm by viewModels<MovieViewModel>()
 
-    fun initViewModel(){
+    fun initViewModel() {
         binding.setVariable(BR.vm, vm)
     }
 
     @SuppressLint("CheckResult")
-    private fun setOnItemTouchListener(){
+    private fun setOnItemTouchListener() {
         movieAdapter.getOnItemClickObservable().subscribe {
             val webIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse(vm.movieItems.value!![it].link))
@@ -44,7 +46,7 @@ class MovieFragment : BaseFragment<MovieFragmentBinding, MovieViewModel>(
     }
 
     private fun setErrorMessageObserver() {
-        vm.errorMessage.observe(this, Observer {
+        vm.errorMessage.observe(viewLifecycleOwner, Observer {
             it.let {
                 showToast(it)
             }
